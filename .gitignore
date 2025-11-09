@@ -1,0 +1,7 @@
+node_modules
+.next
+.DS_Store
+.env
+
+# Ignore archive copy bundled in repo
+"aigiftgen_v101 2/"
