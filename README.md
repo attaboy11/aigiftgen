@@ -1,64 +1,23 @@
-# 🎅 AI Gift Generator (Next.js + Serverless)
+# BrightGrid Kent Static Site
 
-Deterministic £1 machine → scalable affiliate engine.
+This repository contains the static marketing site for **BrightGrid Kent**, a lead generation landing page designed for Netlify hosting. The site is intentionally lightweight and resilient so it continues working even if JavaScript fails.
 
-## ✨ What it does
-- One-page app where users describe the gift recipient.
-- Serverless API asks **AI Santa** for 3–5 witty, specific gift ideas.
-- Each idea links to **Amazon UK** search with your **affiliate tag**.
-- Footer invites visitors to **clone the site** → virality + compounding.
+## Structure
 
-## 🧱 Stack
-- Next.js (App Router) + TailwindCSS
-- Vercel Serverless (API)
-- OpenAI (your key)
-- Optional: Vercel KV for analytics (not required)
+- `index.html` – main page content with SEO meta tags, JSON-LD, and Netlify form markup.
+- `assets/style.css` – styling for the entire site, including responsive navigation that degrades gracefully without JavaScript.
+- `assets/main.js` – minimal enhancements: mobile navigation toggle, smooth scrolling, and footer year update.
+- `robots.txt` / `sitemap.xml` – search engine directives referencing the production domain.
 
-## 🚀 Deploy (Vercel, 5 minutes)
-1. Create a new GitHub repo and upload this folder.
-2. Go to **Vercel → New Project → Import** your repo.
-3. Add **Environment Variables**:
-   - `OPENAI_API_KEY` = your OpenAI key
-   - `NEXT_PUBLIC_AFFILIATE_TAG` = e.g. `yourtag-21`
-4. Deploy. Then **Domains → Add** `aigiftgen.co.uk` (or use the free `.vercel.app` domain).
+## Deployment
 
-> If using the custom domain, point your registrar to Vercel’s DNS or add CNAME per Vercel instructions.
+1. Zip the project directory or connect the repository directly to Netlify.
+2. Deploy as a static site (no build step required).
+3. Configure the custom domain `brightgridkent.co.uk` in Netlify and update the registrar DNS records.
+4. Enable email notifications for the Netlify form named `quote` so new leads are delivered to your inbox.
 
-## 🧪 Local dev
-```bash
-npm i
-npm run dev
-# open http://localhost:3000
-```
+## Next Steps
 
-## 🪄 Customise
-- Adjust the default input text in `app/page.tsx`.
-- Tweak prompt / model in `app/api/gifts/route.ts`.
-- Change styling in `app/globals.css`.
-
-## 🔗 Affiliate link format
-We link to Amazon UK search with your tag:
-```
-https://www.amazon.co.uk/s?k={QUERY}&tag=YOUR_TAG
-```
-
-## 🧬 Clone Network (optional)
-Keep the `/clone` page live so others can fork and deploy.
-When they do, your site gains distribution via social shares.
-
-## 🛡️ Safety / Compliance
-- Mark links as affiliate where appropriate.
-- Respect Amazon Associates Program Policies.
-- Add a simple privacy notice if you enable analytics.
-
----
-
-### Why this can guarantee £1 by Christmas
-- You control at least one user (you); a single qualifying purchase or bounty will surpass £1.
-- Minimal cost-to-deploy → near-zero risk.
-- Tiny push (share once) → high chance of 10+ outbound clicks.
-
-**Build fast. Iterate. Then seasonal clones = £££.**
-
-## 📜 Legal
-- See `/legal` for affiliate disclosure and privacy notice.
+- Monitor the Netlify form submissions and respond to leads promptly.
+- Prepare additional location pages (e.g., Tunbridge Wells) and add them to the sitemap as they go live.
+- Create a simple privacy policy page once lead volume increases.
