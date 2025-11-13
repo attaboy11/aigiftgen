@@ -1,64 +1,47 @@
-# 🎅 AI Gift Generator (Next.js + Serverless)
+# ☀️ Codex Solar Platform
 
-Deterministic £1 machine → scalable affiliate engine.
+Launch high-performance solar projects with Codex Solar — a boutique engineering team that blends digital modelling with boots-on-roof delivery.
 
-## ✨ What it does
-- One-page app where users describe the gift recipient.
-- Serverless API asks **AI Santa** for 3–5 witty, specific gift ideas.
-- Each idea links to **Amazon UK** search with your **affiliate tag**.
-- Footer invites visitors to **clone the site** → virality + compounding.
+## 🌍 What we deliver
+- Feasibility and irradiance modelling tailored to your estate.
+- Turnkey EPC delivery for rooftop, carport and ground-mount arrays.
+- 24/7 monitoring, maintenance, and optimisation with transparent reporting dashboards.
 
-## 🧱 Stack
-- Next.js (App Router) + TailwindCSS
-- Vercel Serverless (API)
-- OpenAI (your key)
-- Optional: Vercel KV for analytics (not required)
-
-## 🚀 Deploy (Vercel, 5 minutes)
-1. Create a new GitHub repo and upload this folder.
-2. Go to **Vercel → New Project → Import** your repo.
-3. Add **Environment Variables**:
-   - `OPENAI_API_KEY` = your OpenAI key
-   - `NEXT_PUBLIC_AFFILIATE_TAG` = e.g. `yourtag-21`
-4. Deploy. Then **Domains → Add** `aigiftgen.co.uk` (or use the free `.vercel.app` domain).
-
-> If using the custom domain, point your registrar to Vercel’s DNS or add CNAME per Vercel instructions.
-
-## 🧪 Local dev
+## 🚀 Getting started
 ```bash
-npm i
+npm install
 npm run dev
-# open http://localhost:3000
+# visit http://localhost:3000
 ```
 
-## 🪄 Customise
-- Adjust the default input text in `app/page.tsx`.
-- Tweak prompt / model in `app/api/gifts/route.ts`.
-- Change styling in `app/globals.css`.
+Set environment variables in `.env.local` if you plan to integrate APIs (none are required for the static marketing experience).
 
-## 🔗 Affiliate link format
-We link to Amazon UK search with your tag:
+## 🌐 Deploying to Netlify
+
+This project is configured for static export so Netlify can serve it from the global edge network:
+
+1. Push the repo to GitHub/GitLab/Bitbucket and connect it to Netlify.
+2. Leave the **Base directory** blank. Netlify will detect `package.json` in the repository root.
+3. Use the default build command (`npm run build`) and publish directory (`out`). These match the `netlify.toml` that ships with the project.
+4. Trigger a deploy. Netlify installs dependencies, runs the static export, and uploads the generated site from `out/`.
+
+If you change the output directory in the future, mirror that value in `netlify.toml` and the Netlify UI.
+
+## 🧰 Tech stack
+- Next.js 14 App Router
+- React 18
+- Tailwind CSS 3
+- TypeScript
+
+## 🗺️ Project layout
 ```
-https://www.amazon.co.uk/s?k={QUERY}&tag=YOUR_TAG
+app/
+  layout.tsx      # Global metadata and shell
+  page.tsx        # Marketing site homepage
+  globals.css     # Tailwind layers + design tokens
+components/
+  QuoteCalculator.tsx  # Interactive solar feasibility calculator
 ```
 
-## 🧬 Clone Network (optional)
-Keep the `/clone` page live so others can fork and deploy.
-When they do, your site gains distribution via social shares.
-
-## 🛡️ Safety / Compliance
-- Mark links as affiliate where appropriate.
-- Respect Amazon Associates Program Policies.
-- Add a simple privacy notice if you enable analytics.
-
----
-
-### Why this can guarantee £1 by Christmas
-- You control at least one user (you); a single qualifying purchase or bounty will surpass £1.
-- Minimal cost-to-deploy → near-zero risk.
-- Tiny push (share once) → high chance of 10+ outbound clicks.
-
-**Build fast. Iterate. Then seasonal clones = £££.**
-
-## 📜 Legal
-- See `/legal` for affiliate disclosure and privacy notice.
+## 📄 Licensing
+All assets and content in this repository are provided under the MIT License unless stated otherwise.
