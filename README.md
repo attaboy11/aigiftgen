@@ -8,10 +8,21 @@ Launch high-performance solar projects with Codex Solar — a boutique engineeri
 - 24/7 monitoring, maintenance, and optimisation with transparent reporting dashboards.
 
 ## 🚀 Getting started
+
+Install dependencies and launch the Next.js dev server:
+
 ```bash
 npm install
 npm run dev
 # visit http://localhost:3000
+```
+
+To inspect the static export exactly as Netlify will serve it, run a production preview:
+
+```bash
+npm run build
+npm run preview
+# visit http://localhost:4173
 ```
 
 Set environment variables in `.env.local` if you plan to integrate APIs (none are required for the static marketing experience).
@@ -21,9 +32,14 @@ Set environment variables in `.env.local` if you plan to integrate APIs (none ar
 This project is configured for static export so Netlify can serve it from the global edge network:
 
 1. Push the repo to GitHub/GitLab/Bitbucket and connect it to Netlify.
-2. Leave the **Base directory** blank. Netlify will detect `package.json` in the repository root.
-3. Use the default build command (`npm run build`) and publish directory (`out`). These match the `netlify.toml` that ships with the project.
+2. Leave the **Base directory** blank. Netlify will detect `package.json` in the repository root (double-check with `ls` if you run into ENOENT errors).
+3. Use the default build command (`npm run build`) and publish directory (`out`). These values match the bundled `netlify.toml`.
 4. Trigger a deploy. Netlify installs dependencies, runs the static export, and uploads the generated site from `out/`.
+
+### Troubleshooting Netlify builds
+
+- **`ENOENT: no such file or directory, open '.../package.json'`** – make sure you deployed the repository root rather than a subdirectory. The `package.json` included in this project lives at the root level.
+- **`out` directory missing in preview** – run `npm run build` before `npm run preview`; the preview server simply serves the generated static files.
 
 If you change the output directory in the future, mirror that value in `netlify.toml` and the Netlify UI.
 
